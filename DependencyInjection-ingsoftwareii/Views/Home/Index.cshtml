@@ -1,8 +1,12 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
+    var transient = (Objeto)ViewBag.transient;
+    var scoped = (Objeto)ViewBag.scoped;
+    var singleton = (Objeto)ViewBag.singleton;
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <b>Transient -> </b>@transient.valorActual()
+    <b>Scoped -> </b>@scoped.valorActual()
+    <b>Singleton -> </b>@singleton.valorActual()
 </div>

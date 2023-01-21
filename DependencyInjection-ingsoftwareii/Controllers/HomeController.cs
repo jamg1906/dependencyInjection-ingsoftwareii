@@ -6,15 +6,24 @@ namespace DependencyInjection_ingsoftwareii.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ITransient _transient;
+        private readonly ISingleton _singleton;
+        private readonly IScoped _scoped;
+
+
+        public HomeController(ITransient transient, ISingleton singleton, IScoped scoped)
         {
-            _logger = logger;
+            _transient = transient;
+            _singleton = singleton;
+            _scoped = scoped;
         }
 
         public IActionResult Index()
         {
+            ViewBag.transient = _transient;
+            ViewBag.singleton = _singleton;
+            ViewBag.scoped = _scoped;
             return View();
         }
 

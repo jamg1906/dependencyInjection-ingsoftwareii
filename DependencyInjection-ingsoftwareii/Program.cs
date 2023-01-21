@@ -8,8 +8,14 @@ namespace DependencyInjection_ingsoftwareii
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            //generación de objetos transient, scoped y singleton.
+            builder.Services.AddTransient<ITransient, Objeto>();
+            builder.Services.AddScoped<IScoped, Objeto>();
+            builder.Services.AddSingleton<ISingleton, Objeto>();
+
 
             var app = builder.Build();
+
 
             // Configure the HTTP request pipeline.
             if (!app.Environment.IsDevelopment())
